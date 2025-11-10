@@ -1,0 +1,5 @@
+site_name: Awesome Threat Detection
+site_description: A curated list of resources about detecting threats and defending applications as well as Linux and Kubernetes systems.
+site_url: https://danielpacak.github.io/awesome-threat-detection
+theme:
+  name: material
