@@ -1,3 +1,4 @@
+# Deploys MkDocs at https://danielpacak.github.io/awesome-threat-detection/
 name: ci
 on:
   push:
