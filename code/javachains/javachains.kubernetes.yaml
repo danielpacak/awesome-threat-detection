@@ -1,5 +1,6 @@
 # Run Java Chains as pod
 # k apply -f javachains.kubernetes.yaml
+# k port-forward -n javachains pods/javachains 8011:8011
 ---
 apiVersion: v1
 kind: Namespace
@@ -16,10 +17,24 @@ spec:
     - image: javachains/javachains:latest
       name: javachains
       env:
-       - name: CHAINS_AUTH
-         value: "true"
-       - name: CHAINS_PASS
-         value: "$3cr3+"
+        - name: CHAINS_AUTH
+          value: "true"
+        - name: CHAINS_PASS
+          value: "admin"
       ports:
+        # The payload generation function only requires port 8011, while other
+        # ports are used for the exploit module.
         - containerPort: 8011
-          name: web
+          name: chains-web
+        - containerPort: 50389
+          name: jndi-ldap
+        - containerPort: 50388
+          name: jndi-rmi
+        - containerPort: 3308
+          name: fake-mysql
+        - containerPort: 13999
+          name: jrmp-listener
+        - containerPort: 50000
+          name: http-server
+        - containerPort: 11527
+          name: tcp-server
