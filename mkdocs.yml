@@ -5,3 +5,20 @@ repo_name: GitHub
 repo_url: https://github.com/danielpacak/awesome-threat-detection
 theme:
   name: material
+  features:
+    - content.code.copy
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        # Enable native support for Mermaid.js diagrams. Material for MkDocs will
+        # automatically initialize the JavaScript runtime when a page includes a
+        # mermaid code block:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

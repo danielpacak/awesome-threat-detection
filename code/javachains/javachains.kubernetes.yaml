@@ -1,0 +1,25 @@
+# Run Java Chains as pod
+# k apply -f javachains.kubernetes.yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: javachains
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: javachains
+  namespace: javachains
+spec:
+  containers:
+    - image: javachains/javachains:latest
+      name: javachains
+      env:
+       - name: CHAINS_AUTH
+         value: "true"
+       - name: CHAINS_PASS
+         value: "$3cr3+"
+      ports:
+        - containerPort: 8011
+          name: web

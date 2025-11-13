@@ -467,3 +467,7 @@ be installed on many different operating systems, and this installation process
 can be repeated for any additional host you want to enroll in the Elastic Stack.
 
 https://www.elastic.co/docs/solutions/observability/infra-and-hosts/tutorial-observe-kubernetes-deployments
+
+## Further reading
+
+* https://matheuzsecurity.github.io/hacking/bypassing-elastic/

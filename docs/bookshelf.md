@@ -1,5 +1,6 @@
 # Bookshelf
 
+* [Seitz, J.; Arnold T. (2021). Black Hat Python: Python Programming for Hackers and Pentesters (2nd ed.). No Starch Press](https://nostarch.com/black-hat-python2E)
 * [AlFardan, N. (2024). Cyber Threat Hunting. Manning Publications Co.](https://www.manning.com/books/cyber-threat-hunting)
 * [Creane, B.; Gupta, A. (2022). Kubernetes Security and Observability: A Holistic Approach to Securing Containers and Cloud Native Applications. O'Reilly Media](https://www.oreilly.com/library/view/kubernetes-security-and/9781098107093/)
 * [Degioanni, L.; Grasso, L. (2022). Practical Cloud Native Security with Falco: Risk and Threat Detection for Containers, Kubernetes, and Cloud. O'Reilly Media](https://www.oreilly.com/library/view/practical-cloud-native/9781098118563/)
