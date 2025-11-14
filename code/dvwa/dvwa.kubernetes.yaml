@@ -1,0 +1,93 @@
+# Damn Vulnerable Web Application (DVWA)
+# https://github.com/digininja/DVWA/blob/master/compose.yml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dvwa
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvwa-db
+  namespace: dvwa
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: dvwa-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvwa-db
+  namespace: dvwa
+  labels:
+    app: dvwa-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dvwa-db
+  template:
+    metadata:
+      labels:
+        app: dvwa-db
+    spec:
+      containers:
+        - name: dvwa-db
+          image: docker.io/library/mariadb:10
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: dvwa
+            - name: MYSQL_DATABASE
+              value: dvwa
+            - name: MYSQL_USER
+              value: dvwa
+            - name: MYSQL_PASSWORD
+              value: p@ssw0rd
+          ports:
+            - containerPort: 3306
+              name: mariadb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dvwa-app
+  namespace: dvwa
+  labels:
+    app: dvwa-app
+spec:
+  selector:
+    app: dvwa-app
+  ports:
+    - name: http
+      port: 8888
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvwa-app
+  namespace: dvwa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dvwa-app
+  template:
+    metadata:
+      labels:
+        app: dvwa-app
+    spec:
+      containers:
+        - name: dvwa-app
+          # image: ghcr.io/digininja/dvwa:latest
+          image: ghcr.io/digininja/dvwa:8.3-apache
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DB_SERVER
+              value: dvwa-db.dvwa
+          ports:
+            - containerPort: 80
+              name: http

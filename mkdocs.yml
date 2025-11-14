@@ -5,8 +5,29 @@ repo_name: GitHub
 repo_url: https://github.com/danielpacak/awesome-threat-detection
 theme:
   name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
   features:
     - content.code.copy
+    - content.code.annotate
+    # When enabled, all content tabs across the whole documentation site will be
+    # linked and switch to the same label when the user clicks on a tab.
+    - content.tabs.link
+    # Enable navigation integration for the TOC to always render as part of the
+    # navigation sidebar on the left. Effectively leave more space for the
+    # content, i.e. code snippets, diagrams, images, etc.
+    - toc.integrate
+    # Better (faster) tooltips, replacing the browser's rendering logic.
+    - content.tooltips
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
