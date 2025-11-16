@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A curated list of resources about detecting threats and defending applications as well as Linux and Kubernetes systems.">
+      
+      
+      
+        <link rel="canonical" href="https://danielpacak.github.io/awesome-threat-detection/detection-engineering-test-labs/elastic-stack/">
+      
+      
+        <link rel="prev" href="../../attacks/reverse-shell/">
+      
+      
+        <link rel="next" href="../falco/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Elastic Stack - Awesome Threat Detection</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elastic-stack" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Awesome Threat Detection" class="md-header__button md-logo" aria-label="Awesome Threat Detection" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Awesome Threat Detection
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Elastic Stack
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/danielpacak/awesome-threat-detection" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Awesome Threat Detection" class="md-nav__button md-logo" aria-label="Awesome Threat Detection" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Awesome Threat Detection
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/danielpacak/awesome-threat-detection" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bookshelf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bookshelf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../attacks/reverse-shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Shell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detection engineering test labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Detection engineering test labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elastic Stack
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elastic Stack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TODO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-elastic-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Elastic Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../falco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Falco
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jibril/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jibril
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spyderbat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spyderbat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vulnerabilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerabilities/cve-2021-44228/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apache Log4j2 Lookup Feature JNDI Injection (CVE-2021-44228)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerabilities/cve-2022-26134/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atlassian Confluence Pre-Auth RCE via OGNL Injection (CVE-2022-26134)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerabilities/cve-2023-43208/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NextGen Mirth Connect Pre-Auth RCE (CVE-2023-43208)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnerabilities/dvwa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Damn Vulnerable Web Application (DVWA)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="elastic-stack">Elastic Stack</h1>
+<h2 id="todo">TODO</h2>
+<ol>
+<li>[ ] Upgrade to more recent version of Elastic Stack (8.4 is pretty with limited support)</li>
+<li>[ ] Test that Elastic Stack can detect Atlassian Confluence Pre-Auth RCE via OGNL Injection (CVE-2022-26134)</li>
+<li>[ ] Do I need two instances of Elasticsearch running as Docker Compose services?</li>
+</ol>
+<h2 id="technical-requirements">Technical requirements</h2>
+<p>TBD I'm not sure how to split the test lab in LimaVM, i.e. one or two VMs?</p>
+<h2 id="the-elastic-stack">The Elastic Stack</h2>
+<p>The Elastic Stack is a set of tightly integrated products that are well suited
+to address the requirements of a Detection Engineering lab. The Elastic Stack
+includes the following components:</p>
+<ul>
+<li>Beats: A data shipper that is used to collect data from an endpoint and forward
+  it to Elasticsearch or Logstash for preprocessing. Different packages exist for
+  collecting different types of data from endpoints. Talk about Elastic Agent...</li>
+<li>Logstash: A powerful tool for transforming data and forwarding it to different
+  destination systems. It offers a high degree of control over re-shaping data
+  and has plugins that support forwarding data to a significant variety of destinations.</li>
+<li>Elasticsearch: This is the data storage component. While primarily designed for searching,
+  it has evolved to become a capable data analysis engine.</li>
+<li>Kibana: This is the Elasticsearch frontend. Kibana allows users to explore and visualize data stored in
+  Elasticsearch using a web browser. To read more about Kibana's vast feature set, visit Elastic's website:
+  <a href="https://www.elastic.co/kibana/features">https://www.elastic.co/kibana/features</a>.</li>
+<li>Integrations: This refers to the large collection of data ingestion components
+  that are enabled by Elastic Agent and managed by Fleet Server. Once an endpoint has
+  Elastic Agent installed on it, administrators can configure the collection of data from
+  a variety of known data sources. Elastic Agent receives configuration details from
+  Fleet Server about what data should be collected, and which server the data should be output to.
+  These configuration details are defined as agent policies and are stored in Elasticsearch.</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    subgraph limaVM["Ubuntu in LimaVM 192.168.5.15/24"]
+        subgraph docker["Docker 172.17.0.1/16"]
+            kibana("Kibana 172.18.0.5/16")
+            elasticsearch1("Elasticsearch (es01) 172.18.0.3/16")
+            elasticsearch2("Elasticsearch (es02) 172.18.0.4/16")
+            fleetServer("Fleet server")
+            kibana --&gt; elasticsearch1
+            fleetServer --&gt; elasticsearch1
+        end
+        elasticAgent("Elastic agent")
+    end
+
+    elasticAgent &lt;-- "policy data and heartbeat" --&gt; fleetServer
+    elasticAgent --&gt; elasticsearch1</code></pre>
+<p>https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-docker
+https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose</p>
+<p>Due to the increased memory requirements of Elastic, the default Docker settings
+must be modified to handle this. If you installed Docker on a Linux-based system,
+as outlined in the Elastic system configuration documentation at https://www.elastic.co/guide/en/elasticsearch/reference/8.4/vm-max-map-count.html,
+then you need to modify the vm.max_map_count setting of the Docker hosts via the sysctl command.</p>
+<p>On Linux, this can be achieved by issuing the following command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo sysctl -w vm.max_map_count=262144
+</span></code></pre></div>
+<p>You can make this change survive reboots by modifying /etc/sysctl.conf.</p>
+<p>Using a new terminal, change your working directory to the esk subdirectory of the project
+root folder and issue the <code>docker compose up -d</code> command.</p>
+<p>If everything has gone well, you will be able to access your Elastic Stack by going to http://[ip address of your docker host]:5601, or http://localhost:5601 if
+you are running Docker on the same machine.</p>
+<p>You can log in by using elastic as the username and the password specified in the .env file for the
+ELASTIC_PASSWORD value.</p>
+<p>Click the hamburger menu in the top-left corner of the page. Under the Management section, click Fleet.
+After navigating there, you will be presented with the screen, which walks you through setting up Fleet Server.
+For the Fleet Server host field, use https://[ip address of your docker host]:8220</p>
+<p>Select Generate Fleet Server policy. A sequence of commands for installing Fleet on a centralized how will be provided.</p>
+<p>https://192.168.5.15:8220 or https://172.17.0.1:8220</p>
+<p>Linux Tar
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.4.3-linux-x86_64.tar.gz
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>tar xzvf elastic-agent-8.4.3-linux-x86_64.tar.gz
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cd elastic-agent-8.4.3-linux-x86_64
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo ./elastic-agent install \
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  --fleet-server-es=http://localhost:9200 \
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  --fleet-server-service-token=AAEAAWVsYXN0aWMvZmxlZXQtc2VydmVyL3Rva2VuLTE3NjI4NTkyNTU5MDM6Q2Y5SW5XZFBSdkNfUElURUZlU05FQQ \
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  --fleet-server-policy=fleet-server-policy
+</span></code></pre></div></p>
+<p>DEB
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.4.3-amd64.deb
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo dpkg -i elastic-agent-8.4.3-amd64.deb
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo elastic-agent enroll \
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  --fleet-server-es=http://localhost:9200 \
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  --fleet-server-service-token=AAEAAWVsYXN0aWMvZmxlZXQtc2VydmVyL3Rva2VuLTE3NjI4NTkyNTU5MDM6Q2Y5SW5XZFBSdkNfUElURUZlU05FQQ \
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  --fleet-server-policy=fleet-server-policy
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo systemctl enable elastic-agent
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>sudo systemctl start elastic-agent
+</span></code></pre></div></p>
+<p>We only need the value of fleet-server-service-token. Copy this value from the web page and paste it into
+the .env file in the fleet subdirectory.</p>
+<p>You can now start the Fleet container using the docker compose up -d</p>
+<p>With that, Fleet has been configured. Next, we'll perform some additional configurations
+that are required for full functionality.</p>
+<p>By default, the Fleet Server policy is configured to send output to the Elastic host (http://localhost:9200).
+Hosts that we later connect to our Fleet Server may not be able to reach the Elasticsearch backend using that address.
+Therefore, we need to change the default output so that telemetry from additional hosts gets
+stored in Elasticsearch.</p>
+<p>https://192.168.5.15:9200 or https://172.17.0.1:9200</p>
+<p>For Advanced YAML configuration, enter <code>ssl.verification_mode: none</code>.</p>
+<p>Install Elastic Agent (for Windows)
+Install Elastic Agent (for Linux)</p>
+<p>Linux TAR
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.4.3-linux-x86_64.tar.gz
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>tar xzvf elastic-agent-8.4.3-linux-x86_64.tar.gz
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cd elastic-agent-8.4.3-linux-x86_64
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sudo ./elastic-agent install --url=https://192.168.5.15:8220 --insecure --enrollment-token=QzZ6TGNwb0JhZ3EzTXJVNkNZTFo6SjhWWW41T2JRamFZdTd6Q3JiV1lEdw==
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Elastic Agent will be installed at /opt/Elastic/Agent and will run as a service. Do you want to continue? [Y/n]:Y
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>{&quot;log.level&quot;:&quot;warn&quot;,&quot;@timestamp&quot;:&quot;2025-11-11T13:08:43.130+0100&quot;,&quot;log.logger&quot;:&quot;tls&quot;,&quot;log.origin&quot;:{&quot;file.name&quot;:&quot;tlscommon/tls_config.go&quot;,&quot;file.line&quot;:104},&quot;message&quot;:&quot;SSL/TLS verifications disabled.&quot;,&quot;ecs.version&quot;:&quot;1.6.0&quot;}
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>{&quot;log.level&quot;:&quot;info&quot;,&quot;@timestamp&quot;:&quot;2025-11-11T13:08:43.391+0100&quot;,&quot;log.origin&quot;:{&quot;file.name&quot;:&quot;cmd/enroll_cmd.go&quot;,&quot;file.line&quot;:471},&quot;message&quot;:&quot;Starting enrollment to URL: https://192.168.5.15:8220/&quot;,&quot;ecs.version&quot;:&quot;1.6.0&quot;}
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>{&quot;log.level&quot;:&quot;warn&quot;,&quot;@timestamp&quot;:&quot;2025-11-11T13:08:43.503+0100&quot;,&quot;log.logger&quot;:&quot;tls&quot;,&quot;log.origin&quot;:{&quot;file.name&quot;:&quot;tlscommon/tls_config.go&quot;,&quot;file.line&quot;:104},&quot;message&quot;:&quot;SSL/TLS verifications disabled.&quot;,&quot;ecs.version&quot;:&quot;1.6.0&quot;}
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>{&quot;log.level&quot;:&quot;info&quot;,&quot;@timestamp&quot;:&quot;2025-11-11T13:08:44.223+0100&quot;,&quot;log.origin&quot;:{&quot;file.name&quot;:&quot;cmd/enroll_cmd.go&quot;,&quot;file.line&quot;:273},&quot;message&quot;:&quot;Successfully triggered restart on running Elastic Agent.&quot;,&quot;ecs.version&quot;:&quot;1.6.0&quot;}
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Successfully enrolled the Elastic Agent.
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Elastic Agent has been successfully installed.
+</span></code></pre></div></p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>systemctl<span class="w"> </span>status<span class="w"> </span>elastic-agent.service
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">● elastic-agent.service - Elastic Agent is a unified agent to observe, monitor and protect your system.</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="go">     Loaded: loaded (/etc/systemd/system/elastic-agent.service; enabled; vendor preset: enabled)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="go">     Active: active (running) since Tue 2025-11-11 13:08:43 CET; 31s ago</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="go">   Main PID: 96302 (elastic-agent)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="go">      Tasks: 56 (limit: 9475)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="go">     Memory: 810.8M</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="go">        CPU: 15.237s</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="go">     CGroup: /system.slice/elastic-agent.service</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="go">             ├─96302 elastic-agent</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="go">             ├─96415 /opt/Elastic/Agent/data/elastic-agent-90167b/install/filebeat-8.4.3-linux-x86_64/filebeat -E setup.ilm.enabled=false -E setup.template.enabled=false -E management.enabled=true -E log&gt;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="go">             ├─96469 /opt/Elastic/Agent/data/elastic-agent-90167b/install/metricbeat-8.4.3-linux-x86_64/metricbeat -E setup.ilm.enabled=false -E setup.template.enabled=false -E management.enabled=true -E&gt;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="go">             ├─96501 /opt/Elastic/Agent/data/elastic-agent-90167b/install/filebeat-8.4.3-linux-x86_64/filebeat -E setup.ilm.enabled=false -E setup.template.enabled=false -E management.enabled=true -E log&gt;</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="go">             └─96543 /opt/Elastic/Agent/data/elastic-agent-90167b/install/metricbeat-8.4.3-linux-x86_64/metricbeat -E setup.ilm.enabled=false -E setup.template.enabled=false -E management.enabled=true -E&gt;</span>
+</span></code></pre></div>
+<p>DEB
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.4.3-amd64.deb
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo dpkg -i elastic-agent-8.4.3-amd64.deb
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo elastic-agent enroll --url=https://192.168.5.15:8220 --enrollment-token=QzZ6TGNwb0JhZ3EzTXJVNkNZTFo6SjhWWW41T2JRamFZdTd6Q3JiV1lEdw== 
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sudo systemctl enable elastic-agent 
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>sudo systemctl start elastic-agent
+</span></code></pre></div></p>
+<p>Kubernetes
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>---
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a># For more information refer to https://www.elastic.co/guide/en/fleet/current/running-on-kubernetes-managed-by-fleet.html
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>apiVersion: apps/v1
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>kind: DaemonSet
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>metadata:
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  name: elastic-agent
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  namespace: kube-system
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  labels:
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    app: elastic-agent
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>spec:
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  selector:
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    matchLabels:
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>      app: elastic-agent
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  template:
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    metadata:
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>      labels:
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        app: elastic-agent
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    spec:
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>      # Tolerations are needed to run Elastic Agent on Kubernetes master nodes.
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>      # Agents running on master nodes collect metrics from the control plane components (scheduler, controller manager) of Kubernetes
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>      tolerations:
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        - key: node-role.kubernetes.io/master
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>          effect: NoSchedule
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>      serviceAccountName: elastic-agent
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>      hostNetwork: true
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>      # &#39;hostPID: true&#39; enables the Elastic Security integration to observe all process exec events on the host.
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>      # Sharing the host process ID namespace gives visibility of all processes running on the same host.
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>      hostPID: true
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>      dnsPolicy: ClusterFirstWithHostNet
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>      containers:
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>        - name: elastic-agent
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>          image: docker.elastic.co/beats/elastic-agent:8.4.3
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>          env:
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>            # Set to 1 for enrollment into Fleet server. If not set, Elastic Agent is run in standalone mode
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>            - name: FLEET_ENROLL
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>              value: &quot;1&quot;
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>            # Set to true to communicate with Fleet with either insecure HTTP or unverified HTTPS
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>            - name: FLEET_INSECURE
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>              value: &quot;true&quot;
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>            # Fleet Server URL to enroll the Elastic Agent into
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>            # FLEET_URL can be found in Kibana, go to Management &gt; Fleet &gt; Settings
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>            - name: FLEET_URL
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>              value: &quot;https://192.168.5.15:8220&quot;
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>            # Elasticsearch API key used to enroll Elastic Agents in Fleet (https://www.elastic.co/guide/en/fleet/current/fleet-enrollment-tokens.html#fleet-enrollment-tokens)
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>            # If FLEET_ENROLLMENT_TOKEN is empty then KIBANA_HOST, KIBANA_FLEET_USERNAME, KIBANA_FLEET_PASSWORD are needed
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>            - name: FLEET_ENROLLMENT_TOKEN
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>              value: &quot;QzZ6TGNwb0JhZ3EzTXJVNkNZTFo6SjhWWW41T2JRamFZdTd6Q3JiV1lEdw==&quot;
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>            - name: KIBANA_HOST
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>              value: &quot;http://kibana:5601&quot;
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>            # The basic authentication username used to connect to Kibana and retrieve a service_token to enable Fleet
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>            - name: KIBANA_FLEET_USERNAME
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>              value: &quot;elastic&quot;
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>            # The basic authentication password used to connect to Kibana and retrieve a service_token to enable Fleet
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>            - name: KIBANA_FLEET_PASSWORD
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>              value: &quot;changeme&quot;
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>            - name: NODE_NAME
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>              valueFrom:
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>                fieldRef:
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>                  fieldPath: spec.nodeName
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>            - name: POD_NAME
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>              valueFrom:
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>                fieldRef:
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>                  fieldPath: metadata.name
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>          securityContext:
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>            runAsUser: 0
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a>          resources:
+</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>            limits:
+</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>              memory: 500Mi
+</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>            requests:
+</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>              cpu: 100m
+</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>              memory: 200Mi
+</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>          volumeMounts:
+</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>            - name: proc
+</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>              mountPath: /hostfs/proc
+</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>              readOnly: true
+</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>            - name: etc-kubernetes
+</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>              mountPath: /hostfs/etc/kubernetes
+</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a>              readOnly: true
+</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a>            - name: var-lib
+</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>              mountPath: /hostfs/var/lib
+</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a>              readOnly: true
+</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a>            - name: cgroup
+</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a>              mountPath: /hostfs/sys/fs/cgroup
+</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a>              readOnly: true
+</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>            - name: varlibdockercontainers
+</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>              mountPath: /var/lib/docker/containers
+</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a>              readOnly: true
+</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>            - name: varlog
+</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a>              mountPath: /var/log
+</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a>              readOnly: true
+</span><span id="__span-7-91"><a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a>            - name: passwd
+</span><span id="__span-7-92"><a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a>              mountPath: /hostfs/etc/passwd
+</span><span id="__span-7-93"><a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a>              readOnly: true
+</span><span id="__span-7-94"><a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a>            - name: group
+</span><span id="__span-7-95"><a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a>              mountPath: /hostfs/etc/group
+</span><span id="__span-7-96"><a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a>              readOnly: true
+</span><span id="__span-7-97"><a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a>            - name: etcsysmd
+</span><span id="__span-7-98"><a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a>              mountPath: /hostfs/etc/systemd
+</span><span id="__span-7-99"><a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a>              readOnly: true
+</span><span id="__span-7-100"><a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a>            - name: etc-mid
+</span><span id="__span-7-101"><a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a>              mountPath: /etc/machine-id
+</span><span id="__span-7-102"><a id="__codelineno-7-102" name="__codelineno-7-102" href="#__codelineno-7-102"></a>              readOnly: true
+</span><span id="__span-7-103"><a id="__codelineno-7-103" name="__codelineno-7-103" href="#__codelineno-7-103"></a>      volumes:
+</span><span id="__span-7-104"><a id="__codelineno-7-104" name="__codelineno-7-104" href="#__codelineno-7-104"></a>        - name: proc
+</span><span id="__span-7-105"><a id="__codelineno-7-105" name="__codelineno-7-105" href="#__codelineno-7-105"></a>          hostPath:
+</span><span id="__span-7-106"><a id="__codelineno-7-106" name="__codelineno-7-106" href="#__codelineno-7-106"></a>            path: /proc
+</span><span id="__span-7-107"><a id="__codelineno-7-107" name="__codelineno-7-107" href="#__codelineno-7-107"></a>        - name: cgroup
+</span><span id="__span-7-108"><a id="__codelineno-7-108" name="__codelineno-7-108" href="#__codelineno-7-108"></a>          hostPath:
+</span><span id="__span-7-109"><a id="__codelineno-7-109" name="__codelineno-7-109" href="#__codelineno-7-109"></a>            path: /sys/fs/cgroup
+</span><span id="__span-7-110"><a id="__codelineno-7-110" name="__codelineno-7-110" href="#__codelineno-7-110"></a>        - name: varlibdockercontainers
+</span><span id="__span-7-111"><a id="__codelineno-7-111" name="__codelineno-7-111" href="#__codelineno-7-111"></a>          hostPath:
+</span><span id="__span-7-112"><a id="__codelineno-7-112" name="__codelineno-7-112" href="#__codelineno-7-112"></a>            path: /var/lib/docker/containers
+</span><span id="__span-7-113"><a id="__codelineno-7-113" name="__codelineno-7-113" href="#__codelineno-7-113"></a>        - name: varlog
+</span><span id="__span-7-114"><a id="__codelineno-7-114" name="__codelineno-7-114" href="#__codelineno-7-114"></a>          hostPath:
+</span><span id="__span-7-115"><a id="__codelineno-7-115" name="__codelineno-7-115" href="#__codelineno-7-115"></a>            path: /var/log
+</span><span id="__span-7-116"><a id="__codelineno-7-116" name="__codelineno-7-116" href="#__codelineno-7-116"></a>        # Needed for cloudbeat
+</span><span id="__span-7-117"><a id="__codelineno-7-117" name="__codelineno-7-117" href="#__codelineno-7-117"></a>        - name: etc-kubernetes
+</span><span id="__span-7-118"><a id="__codelineno-7-118" name="__codelineno-7-118" href="#__codelineno-7-118"></a>          hostPath:
+</span><span id="__span-7-119"><a id="__codelineno-7-119" name="__codelineno-7-119" href="#__codelineno-7-119"></a>            path: /etc/kubernetes
+</span><span id="__span-7-120"><a id="__codelineno-7-120" name="__codelineno-7-120" href="#__codelineno-7-120"></a>        # Needed for cloudbeat
+</span><span id="__span-7-121"><a id="__codelineno-7-121" name="__codelineno-7-121" href="#__codelineno-7-121"></a>        - name: var-lib
+</span><span id="__span-7-122"><a id="__codelineno-7-122" name="__codelineno-7-122" href="#__codelineno-7-122"></a>          hostPath:
+</span><span id="__span-7-123"><a id="__codelineno-7-123" name="__codelineno-7-123" href="#__codelineno-7-123"></a>            path: /var/lib
+</span><span id="__span-7-124"><a id="__codelineno-7-124" name="__codelineno-7-124" href="#__codelineno-7-124"></a>        # Needed for cloudbeat
+</span><span id="__span-7-125"><a id="__codelineno-7-125" name="__codelineno-7-125" href="#__codelineno-7-125"></a>        - name: passwd
+</span><span id="__span-7-126"><a id="__codelineno-7-126" name="__codelineno-7-126" href="#__codelineno-7-126"></a>          hostPath:
+</span><span id="__span-7-127"><a id="__codelineno-7-127" name="__codelineno-7-127" href="#__codelineno-7-127"></a>            path: /etc/passwd
+</span><span id="__span-7-128"><a id="__codelineno-7-128" name="__codelineno-7-128" href="#__codelineno-7-128"></a>        # Needed for cloudbeat
+</span><span id="__span-7-129"><a id="__codelineno-7-129" name="__codelineno-7-129" href="#__codelineno-7-129"></a>        - name: group
+</span><span id="__span-7-130"><a id="__codelineno-7-130" name="__codelineno-7-130" href="#__codelineno-7-130"></a>          hostPath:
+</span><span id="__span-7-131"><a id="__codelineno-7-131" name="__codelineno-7-131" href="#__codelineno-7-131"></a>            path: /etc/group
+</span><span id="__span-7-132"><a id="__codelineno-7-132" name="__codelineno-7-132" href="#__codelineno-7-132"></a>        # Needed for cloudbeat
+</span><span id="__span-7-133"><a id="__codelineno-7-133" name="__codelineno-7-133" href="#__codelineno-7-133"></a>        - name: etcsysmd
+</span><span id="__span-7-134"><a id="__codelineno-7-134" name="__codelineno-7-134" href="#__codelineno-7-134"></a>          hostPath:
+</span><span id="__span-7-135"><a id="__codelineno-7-135" name="__codelineno-7-135" href="#__codelineno-7-135"></a>            path: /etc/systemd
+</span><span id="__span-7-136"><a id="__codelineno-7-136" name="__codelineno-7-136" href="#__codelineno-7-136"></a>        # Mount /etc/machine-id from the host to determine host ID
+</span><span id="__span-7-137"><a id="__codelineno-7-137" name="__codelineno-7-137" href="#__codelineno-7-137"></a>        # Needed for Elastic Security integration
+</span><span id="__span-7-138"><a id="__codelineno-7-138" name="__codelineno-7-138" href="#__codelineno-7-138"></a>        - name: etc-mid
+</span><span id="__span-7-139"><a id="__codelineno-7-139" name="__codelineno-7-139" href="#__codelineno-7-139"></a>          hostPath:
+</span><span id="__span-7-140"><a id="__codelineno-7-140" name="__codelineno-7-140" href="#__codelineno-7-140"></a>            path: /etc/machine-id
+</span><span id="__span-7-141"><a id="__codelineno-7-141" name="__codelineno-7-141" href="#__codelineno-7-141"></a>            type: File
+</span><span id="__span-7-142"><a id="__codelineno-7-142" name="__codelineno-7-142" href="#__codelineno-7-142"></a>---
+</span><span id="__span-7-143"><a id="__codelineno-7-143" name="__codelineno-7-143" href="#__codelineno-7-143"></a>apiVersion: rbac.authorization.k8s.io/v1
+</span><span id="__span-7-144"><a id="__codelineno-7-144" name="__codelineno-7-144" href="#__codelineno-7-144"></a>kind: ClusterRoleBinding
+</span><span id="__span-7-145"><a id="__codelineno-7-145" name="__codelineno-7-145" href="#__codelineno-7-145"></a>metadata:
+</span><span id="__span-7-146"><a id="__codelineno-7-146" name="__codelineno-7-146" href="#__codelineno-7-146"></a>  name: elastic-agent
+</span><span id="__span-7-147"><a id="__codelineno-7-147" name="__codelineno-7-147" href="#__codelineno-7-147"></a>subjects:
+</span><span id="__span-7-148"><a id="__codelineno-7-148" name="__codelineno-7-148" href="#__codelineno-7-148"></a>  - kind: ServiceAccount
+</span><span id="__span-7-149"><a id="__codelineno-7-149" name="__codelineno-7-149" href="#__codelineno-7-149"></a>    name: elastic-agent
+</span><span id="__span-7-150"><a id="__codelineno-7-150" name="__codelineno-7-150" href="#__codelineno-7-150"></a>    namespace: kube-system
+</span><span id="__span-7-151"><a id="__codelineno-7-151" name="__codelineno-7-151" href="#__codelineno-7-151"></a>roleRef:
+</span><span id="__span-7-152"><a id="__codelineno-7-152" name="__codelineno-7-152" href="#__codelineno-7-152"></a>  kind: ClusterRole
+</span><span id="__span-7-153"><a id="__codelineno-7-153" name="__codelineno-7-153" href="#__codelineno-7-153"></a>  name: elastic-agent
+</span><span id="__span-7-154"><a id="__codelineno-7-154" name="__codelineno-7-154" href="#__codelineno-7-154"></a>  apiGroup: rbac.authorization.k8s.io
+</span><span id="__span-7-155"><a id="__codelineno-7-155" name="__codelineno-7-155" href="#__codelineno-7-155"></a>---
+</span><span id="__span-7-156"><a id="__codelineno-7-156" name="__codelineno-7-156" href="#__codelineno-7-156"></a>apiVersion: rbac.authorization.k8s.io/v1
+</span><span id="__span-7-157"><a id="__codelineno-7-157" name="__codelineno-7-157" href="#__codelineno-7-157"></a>kind: RoleBinding
+</span><span id="__span-7-158"><a id="__codelineno-7-158" name="__codelineno-7-158" href="#__codelineno-7-158"></a>metadata:
+</span><span id="__span-7-159"><a id="__codelineno-7-159" name="__codelineno-7-159" href="#__codelineno-7-159"></a>  namespace: kube-system
+</span><span id="__span-7-160"><a id="__codelineno-7-160" name="__codelineno-7-160" href="#__codelineno-7-160"></a>  name: elastic-agent
+</span><span id="__span-7-161"><a id="__codelineno-7-161" name="__codelineno-7-161" href="#__codelineno-7-161"></a>subjects:
+</span><span id="__span-7-162"><a id="__codelineno-7-162" name="__codelineno-7-162" href="#__codelineno-7-162"></a>  - kind: ServiceAccount
+</span><span id="__span-7-163"><a id="__codelineno-7-163" name="__codelineno-7-163" href="#__codelineno-7-163"></a>    name: elastic-agent
+</span><span id="__span-7-164"><a id="__codelineno-7-164" name="__codelineno-7-164" href="#__codelineno-7-164"></a>    namespace: kube-system
+</span><span id="__span-7-165"><a id="__codelineno-7-165" name="__codelineno-7-165" href="#__codelineno-7-165"></a>roleRef:
+</span><span id="__span-7-166"><a id="__codelineno-7-166" name="__codelineno-7-166" href="#__codelineno-7-166"></a>  kind: Role
+</span><span id="__span-7-167"><a id="__codelineno-7-167" name="__codelineno-7-167" href="#__codelineno-7-167"></a>  name: elastic-agent
+</span><span id="__span-7-168"><a id="__codelineno-7-168" name="__codelineno-7-168" href="#__codelineno-7-168"></a>  apiGroup: rbac.authorization.k8s.io
+</span><span id="__span-7-169"><a id="__codelineno-7-169" name="__codelineno-7-169" href="#__codelineno-7-169"></a>---
+</span><span id="__span-7-170"><a id="__codelineno-7-170" name="__codelineno-7-170" href="#__codelineno-7-170"></a>apiVersion: rbac.authorization.k8s.io/v1
+</span><span id="__span-7-171"><a id="__codelineno-7-171" name="__codelineno-7-171" href="#__codelineno-7-171"></a>kind: RoleBinding
+</span><span id="__span-7-172"><a id="__codelineno-7-172" name="__codelineno-7-172" href="#__codelineno-7-172"></a>metadata:
+</span><span id="__span-7-173"><a id="__codelineno-7-173" name="__codelineno-7-173" href="#__codelineno-7-173"></a>  name: elastic-agent-kubeadm-config
+</span><span id="__span-7-174"><a id="__codelineno-7-174" name="__codelineno-7-174" href="#__codelineno-7-174"></a>  namespace: kube-system
+</span><span id="__span-7-175"><a id="__codelineno-7-175" name="__codelineno-7-175" href="#__codelineno-7-175"></a>subjects:
+</span><span id="__span-7-176"><a id="__codelineno-7-176" name="__codelineno-7-176" href="#__codelineno-7-176"></a>  - kind: ServiceAccount
+</span><span id="__span-7-177"><a id="__codelineno-7-177" name="__codelineno-7-177" href="#__codelineno-7-177"></a>    name: elastic-agent
+</span><span id="__span-7-178"><a id="__codelineno-7-178" name="__codelineno-7-178" href="#__codelineno-7-178"></a>    namespace: kube-system
+</span><span id="__span-7-179"><a id="__codelineno-7-179" name="__codelineno-7-179" href="#__codelineno-7-179"></a>roleRef:
+</span><span id="__span-7-180"><a id="__codelineno-7-180" name="__codelineno-7-180" href="#__codelineno-7-180"></a>  kind: Role
+</span><span id="__span-7-181"><a id="__codelineno-7-181" name="__codelineno-7-181" href="#__codelineno-7-181"></a>  name: elastic-agent-kubeadm-config
+</span><span id="__span-7-182"><a id="__codelineno-7-182" name="__codelineno-7-182" href="#__codelineno-7-182"></a>  apiGroup: rbac.authorization.k8s.io
+</span><span id="__span-7-183"><a id="__codelineno-7-183" name="__codelineno-7-183" href="#__codelineno-7-183"></a>---
+</span><span id="__span-7-184"><a id="__codelineno-7-184" name="__codelineno-7-184" href="#__codelineno-7-184"></a>apiVersion: rbac.authorization.k8s.io/v1
+</span><span id="__span-7-185"><a id="__codelineno-7-185" name="__codelineno-7-185" href="#__codelineno-7-185"></a>kind: ClusterRole
+</span><span id="__span-7-186"><a id="__codelineno-7-186" name="__codelineno-7-186" href="#__codelineno-7-186"></a>metadata:
+</span><span id="__span-7-187"><a id="__codelineno-7-187" name="__codelineno-7-187" href="#__codelineno-7-187"></a>  name: elastic-agent
+</span><span id="__span-7-188"><a id="__codelineno-7-188" name="__codelineno-7-188" href="#__codelineno-7-188"></a>  labels:
+</span><span id="__span-7-189"><a id="__codelineno-7-189" name="__codelineno-7-189" href="#__codelineno-7-189"></a>    k8s-app: elastic-agent
+</span><span id="__span-7-190"><a id="__codelineno-7-190" name="__codelineno-7-190" href="#__codelineno-7-190"></a>rules:
+</span><span id="__span-7-191"><a id="__codelineno-7-191" name="__codelineno-7-191" href="#__codelineno-7-191"></a>  - apiGroups: [&quot;&quot;]
+</span><span id="__span-7-192"><a id="__codelineno-7-192" name="__codelineno-7-192" href="#__codelineno-7-192"></a>    resources:
+</span><span id="__span-7-193"><a id="__codelineno-7-193" name="__codelineno-7-193" href="#__codelineno-7-193"></a>      - nodes
+</span><span id="__span-7-194"><a id="__codelineno-7-194" name="__codelineno-7-194" href="#__codelineno-7-194"></a>      - namespaces
+</span><span id="__span-7-195"><a id="__codelineno-7-195" name="__codelineno-7-195" href="#__codelineno-7-195"></a>      - events
+</span><span id="__span-7-196"><a id="__codelineno-7-196" name="__codelineno-7-196" href="#__codelineno-7-196"></a>      - pods
+</span><span id="__span-7-197"><a id="__codelineno-7-197" name="__codelineno-7-197" href="#__codelineno-7-197"></a>      - services
+</span><span id="__span-7-198"><a id="__codelineno-7-198" name="__codelineno-7-198" href="#__codelineno-7-198"></a>      - configmaps
+</span><span id="__span-7-199"><a id="__codelineno-7-199" name="__codelineno-7-199" href="#__codelineno-7-199"></a>      # Needed for cloudbeat
+</span><span id="__span-7-200"><a id="__codelineno-7-200" name="__codelineno-7-200" href="#__codelineno-7-200"></a>      - serviceaccounts
+</span><span id="__span-7-201"><a id="__codelineno-7-201" name="__codelineno-7-201" href="#__codelineno-7-201"></a>      - persistentvolumes
+</span><span id="__span-7-202"><a id="__codelineno-7-202" name="__codelineno-7-202" href="#__codelineno-7-202"></a>      - persistentvolumeclaims
+</span><span id="__span-7-203"><a id="__codelineno-7-203" name="__codelineno-7-203" href="#__codelineno-7-203"></a>    verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+</span><span id="__span-7-204"><a id="__codelineno-7-204" name="__codelineno-7-204" href="#__codelineno-7-204"></a>  # Enable this rule only if planing to use kubernetes_secrets provider
+</span><span id="__span-7-205"><a id="__codelineno-7-205" name="__codelineno-7-205" href="#__codelineno-7-205"></a>  #- apiGroups: [&quot;&quot;]
+</span><span id="__span-7-206"><a id="__codelineno-7-206" name="__codelineno-7-206" href="#__codelineno-7-206"></a>  #  resources:
+</span><span id="__span-7-207"><a id="__codelineno-7-207" name="__codelineno-7-207" href="#__codelineno-7-207"></a>  #  - secrets
+</span><span id="__span-7-208"><a id="__codelineno-7-208" name="__codelineno-7-208" href="#__codelineno-7-208"></a>  #  verbs: [&quot;get&quot;]
+</span><span id="__span-7-209"><a id="__codelineno-7-209" name="__codelineno-7-209" href="#__codelineno-7-209"></a>  - apiGroups: [&quot;extensions&quot;]
+</span><span id="__span-7-210"><a id="__codelineno-7-210" name="__codelineno-7-210" href="#__codelineno-7-210"></a>    resources:
+</span><span id="__span-7-211"><a id="__codelineno-7-211" name="__codelineno-7-211" href="#__codelineno-7-211"></a>      - replicasets
+</span><span id="__span-7-212"><a id="__codelineno-7-212" name="__codelineno-7-212" href="#__codelineno-7-212"></a>    verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+</span><span id="__span-7-213"><a id="__codelineno-7-213" name="__codelineno-7-213" href="#__codelineno-7-213"></a>  - apiGroups: [&quot;apps&quot;]
+</span><span id="__span-7-214"><a id="__codelineno-7-214" name="__codelineno-7-214" href="#__codelineno-7-214"></a>    resources:
+</span><span id="__span-7-215"><a id="__codelineno-7-215" name="__codelineno-7-215" href="#__codelineno-7-215"></a>      - statefulsets
+</span><span id="__span-7-216"><a id="__codelineno-7-216" name="__codelineno-7-216" href="#__codelineno-7-216"></a>      - deployments
+</span><span id="__span-7-217"><a id="__codelineno-7-217" name="__codelineno-7-217" href="#__codelineno-7-217"></a>      - replicasets
+</span><span id="__span-7-218"><a id="__codelineno-7-218" name="__codelineno-7-218" href="#__codelineno-7-218"></a>      - daemonsets
+</span><span id="__span-7-219"><a id="__codelineno-7-219" name="__codelineno-7-219" href="#__codelineno-7-219"></a>    verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+</span><span id="__span-7-220"><a id="__codelineno-7-220" name="__codelineno-7-220" href="#__codelineno-7-220"></a>  - apiGroups:
+</span><span id="__span-7-221"><a id="__codelineno-7-221" name="__codelineno-7-221" href="#__codelineno-7-221"></a>      - &quot;&quot;
+</span><span id="__span-7-222"><a id="__codelineno-7-222" name="__codelineno-7-222" href="#__codelineno-7-222"></a>    resources:
+</span><span id="__span-7-223"><a id="__codelineno-7-223" name="__codelineno-7-223" href="#__codelineno-7-223"></a>      - nodes/stats
+</span><span id="__span-7-224"><a id="__codelineno-7-224" name="__codelineno-7-224" href="#__codelineno-7-224"></a>    verbs:
+</span><span id="__span-7-225"><a id="__codelineno-7-225" name="__codelineno-7-225" href="#__codelineno-7-225"></a>      - get
+</span><span id="__span-7-226"><a id="__codelineno-7-226" name="__codelineno-7-226" href="#__codelineno-7-226"></a>  - apiGroups: [ &quot;batch&quot; ]
+</span><span id="__span-7-227"><a id="__codelineno-7-227" name="__codelineno-7-227" href="#__codelineno-7-227"></a>    resources:
+</span><span id="__span-7-228"><a id="__codelineno-7-228" name="__codelineno-7-228" href="#__codelineno-7-228"></a>      - jobs
+</span><span id="__span-7-229"><a id="__codelineno-7-229" name="__codelineno-7-229" href="#__codelineno-7-229"></a>      - cronjobs
+</span><span id="__span-7-230"><a id="__codelineno-7-230" name="__codelineno-7-230" href="#__codelineno-7-230"></a>    verbs: [ &quot;get&quot;, &quot;list&quot;, &quot;watch&quot; ]
+</span><span id="__span-7-231"><a id="__codelineno-7-231" name="__codelineno-7-231" href="#__codelineno-7-231"></a>  # Needed for apiserver
+</span><span id="__span-7-232"><a id="__codelineno-7-232" name="__codelineno-7-232" href="#__codelineno-7-232"></a>  - nonResourceURLs:
+</span><span id="__span-7-233"><a id="__codelineno-7-233" name="__codelineno-7-233" href="#__codelineno-7-233"></a>      - &quot;/metrics&quot;
+</span><span id="__span-7-234"><a id="__codelineno-7-234" name="__codelineno-7-234" href="#__codelineno-7-234"></a>    verbs:
+</span><span id="__span-7-235"><a id="__codelineno-7-235" name="__codelineno-7-235" href="#__codelineno-7-235"></a>      - get
+</span><span id="__span-7-236"><a id="__codelineno-7-236" name="__codelineno-7-236" href="#__codelineno-7-236"></a>  # Needed for cloudbeat
+</span><span id="__span-7-237"><a id="__codelineno-7-237" name="__codelineno-7-237" href="#__codelineno-7-237"></a>  - apiGroups: [&quot;rbac.authorization.k8s.io&quot;]
+</span><span id="__span-7-238"><a id="__codelineno-7-238" name="__codelineno-7-238" href="#__codelineno-7-238"></a>    resources:
+</span><span id="__span-7-239"><a id="__codelineno-7-239" name="__codelineno-7-239" href="#__codelineno-7-239"></a>      - clusterrolebindings
+</span><span id="__span-7-240"><a id="__codelineno-7-240" name="__codelineno-7-240" href="#__codelineno-7-240"></a>      - clusterroles
+</span><span id="__span-7-241"><a id="__codelineno-7-241" name="__codelineno-7-241" href="#__codelineno-7-241"></a>      - rolebindings
+</span><span id="__span-7-242"><a id="__codelineno-7-242" name="__codelineno-7-242" href="#__codelineno-7-242"></a>      - roles
+</span><span id="__span-7-243"><a id="__codelineno-7-243" name="__codelineno-7-243" href="#__codelineno-7-243"></a>    verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+</span><span id="__span-7-244"><a id="__codelineno-7-244" name="__codelineno-7-244" href="#__codelineno-7-244"></a>  # Needed for cloudbeat
+</span><span id="__span-7-245"><a id="__codelineno-7-245" name="__codelineno-7-245" href="#__codelineno-7-245"></a>  - apiGroups: [&quot;policy&quot;]
+</span><span id="__span-7-246"><a id="__codelineno-7-246" name="__codelineno-7-246" href="#__codelineno-7-246"></a>    resources:
+</span><span id="__span-7-247"><a id="__codelineno-7-247" name="__codelineno-7-247" href="#__codelineno-7-247"></a>      - podsecuritypolicies
+</span><span id="__span-7-248"><a id="__codelineno-7-248" name="__codelineno-7-248" href="#__codelineno-7-248"></a>    verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+</span><span id="__span-7-249"><a id="__codelineno-7-249" name="__codelineno-7-249" href="#__codelineno-7-249"></a>---
+</span><span id="__span-7-250"><a id="__codelineno-7-250" name="__codelineno-7-250" href="#__codelineno-7-250"></a>apiVersion: rbac.authorization.k8s.io/v1
+</span><span id="__span-7-251"><a id="__codelineno-7-251" name="__codelineno-7-251" href="#__codelineno-7-251"></a>kind: Role
+</span><span id="__span-7-252"><a id="__codelineno-7-252" name="__codelineno-7-252" href="#__codelineno-7-252"></a>metadata:
+</span><span id="__span-7-253"><a id="__codelineno-7-253" name="__codelineno-7-253" href="#__codelineno-7-253"></a>  name: elastic-agent
+</span><span id="__span-7-254"><a id="__codelineno-7-254" name="__codelineno-7-254" href="#__codelineno-7-254"></a>  # Should be the namespace where elastic-agent is running
+</span><span id="__span-7-255"><a id="__codelineno-7-255" name="__codelineno-7-255" href="#__codelineno-7-255"></a>  namespace: kube-system
+</span><span id="__span-7-256"><a id="__codelineno-7-256" name="__codelineno-7-256" href="#__codelineno-7-256"></a>  labels:
+</span><span id="__span-7-257"><a id="__codelineno-7-257" name="__codelineno-7-257" href="#__codelineno-7-257"></a>    k8s-app: elastic-agent
+</span><span id="__span-7-258"><a id="__codelineno-7-258" name="__codelineno-7-258" href="#__codelineno-7-258"></a>rules:
+</span><span id="__span-7-259"><a id="__codelineno-7-259" name="__codelineno-7-259" href="#__codelineno-7-259"></a>  - apiGroups:
+</span><span id="__span-7-260"><a id="__codelineno-7-260" name="__codelineno-7-260" href="#__codelineno-7-260"></a>      - coordination.k8s.io
+</span><span id="__span-7-261"><a id="__codelineno-7-261" name="__codelineno-7-261" href="#__codelineno-7-261"></a>    resources:
+</span><span id="__span-7-262"><a id="__codelineno-7-262" name="__codelineno-7-262" href="#__codelineno-7-262"></a>      - leases
+</span><span id="__span-7-263"><a id="__codelineno-7-263" name="__codelineno-7-263" href="#__codelineno-7-263"></a>    verbs: [&quot;get&quot;, &quot;create&quot;, &quot;update&quot;]
+</span><span id="__span-7-264"><a id="__codelineno-7-264" name="__codelineno-7-264" href="#__codelineno-7-264"></a>---
+</span><span id="__span-7-265"><a id="__codelineno-7-265" name="__codelineno-7-265" href="#__codelineno-7-265"></a>apiVersion: rbac.authorization.k8s.io/v1
+</span><span id="__span-7-266"><a id="__codelineno-7-266" name="__codelineno-7-266" href="#__codelineno-7-266"></a>kind: Role
+</span><span id="__span-7-267"><a id="__codelineno-7-267" name="__codelineno-7-267" href="#__codelineno-7-267"></a>metadata:
+</span><span id="__span-7-268"><a id="__codelineno-7-268" name="__codelineno-7-268" href="#__codelineno-7-268"></a>  name: elastic-agent-kubeadm-config
+</span><span id="__span-7-269"><a id="__codelineno-7-269" name="__codelineno-7-269" href="#__codelineno-7-269"></a>  namespace: kube-system
+</span><span id="__span-7-270"><a id="__codelineno-7-270" name="__codelineno-7-270" href="#__codelineno-7-270"></a>  labels:
+</span><span id="__span-7-271"><a id="__codelineno-7-271" name="__codelineno-7-271" href="#__codelineno-7-271"></a>    k8s-app: elastic-agent
+</span><span id="__span-7-272"><a id="__codelineno-7-272" name="__codelineno-7-272" href="#__codelineno-7-272"></a>rules:
+</span><span id="__span-7-273"><a id="__codelineno-7-273" name="__codelineno-7-273" href="#__codelineno-7-273"></a>  - apiGroups: [&quot;&quot;]
+</span><span id="__span-7-274"><a id="__codelineno-7-274" name="__codelineno-7-274" href="#__codelineno-7-274"></a>    resources:
+</span><span id="__span-7-275"><a id="__codelineno-7-275" name="__codelineno-7-275" href="#__codelineno-7-275"></a>      - configmaps
+</span><span id="__span-7-276"><a id="__codelineno-7-276" name="__codelineno-7-276" href="#__codelineno-7-276"></a>    resourceNames:
+</span><span id="__span-7-277"><a id="__codelineno-7-277" name="__codelineno-7-277" href="#__codelineno-7-277"></a>      - kubeadm-config
+</span><span id="__span-7-278"><a id="__codelineno-7-278" name="__codelineno-7-278" href="#__codelineno-7-278"></a>    verbs: [&quot;get&quot;]
+</span><span id="__span-7-279"><a id="__codelineno-7-279" name="__codelineno-7-279" href="#__codelineno-7-279"></a>---
+</span><span id="__span-7-280"><a id="__codelineno-7-280" name="__codelineno-7-280" href="#__codelineno-7-280"></a>apiVersion: v1
+</span><span id="__span-7-281"><a id="__codelineno-7-281" name="__codelineno-7-281" href="#__codelineno-7-281"></a>kind: ServiceAccount
+</span><span id="__span-7-282"><a id="__codelineno-7-282" name="__codelineno-7-282" href="#__codelineno-7-282"></a>metadata:
+</span><span id="__span-7-283"><a id="__codelineno-7-283" name="__codelineno-7-283" href="#__codelineno-7-283"></a>  name: elastic-agent
+</span><span id="__span-7-284"><a id="__codelineno-7-284" name="__codelineno-7-284" href="#__codelineno-7-284"></a>  namespace: kube-system
+</span><span id="__span-7-285"><a id="__codelineno-7-285" name="__codelineno-7-285" href="#__codelineno-7-285"></a>  labels:
+</span><span id="__span-7-286"><a id="__codelineno-7-286" name="__codelineno-7-286" href="#__codelineno-7-286"></a>    k8s-app: elastic-agent
+</span><span id="__span-7-287"><a id="__codelineno-7-287" name="__codelineno-7-287" href="#__codelineno-7-287"></a>---
+</span></code></pre></div></p>
+<p>Your newly enrolled host will appear in the list of agents. Elastic Agent can
+be installed on many different operating systems, and this installation process
+can be repeated for any additional host you want to enroll in the Elastic Stack.</p>
+<p>https://www.elastic.co/docs/solutions/observability/infra-and-hosts/tutorial-observe-kubernetes-deployments</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li>https://matheuzsecurity.github.io/hacking/bypassing-elastic/</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "toc.integrate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
